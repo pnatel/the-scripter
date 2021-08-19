@@ -1,0 +1,85 @@
+
+.alert { text-align: center; }
+
+.info, .message {
+  color: green;
+  font-weight: bold;
+  
+}
+ 
+.warning {
+  color: yellow;
+  font-weight: bolder;
+  /* background-color: rgba(51, 51, 51, 0.8);   */
+}
+
+.error, .critical {
+  color: red;
+  font-weight: bolder;
+  /* background-color: rgba(51, 51, 51, 0.8); */
+}
+/*
+.col-msg {
+  position: -webkit-sticky;
+  position: sticky;
+  /* left: 25%;
+  right: 5px;
+  top: 0;
+  width: 25%;
+  z-index: 99;
+  text-align: right; */
+  /* background-color: rgba(51, 51, 51, 0.8); */
+  /* display: inline-block;
+  vertical-align: top;
+} */
+
+.autoclose {
+  -moz-animation: pulsate 3s ease-out, close 0s ease-in 15s forwards;
+  /* Firefox */
+  -webkit-animation: pulsate 3s ease-out, close 0s ease-in 15s forwards;
+  /* Safari and Chrome */
+  -o-animation: pulsate 3s ease-out, close 0s ease-in 15s forwards;
+  /* Opera */
+  animation: pulsate 3s ease-out, close 0s ease-in 15s forwards;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: 4;
+  opacity: 0.5;
+}
+@keyframes close {
+  to {
+      width:0;
+      height:0;
+      overflow:hidden;
+  }
+}
+@-webkit-keyframes close {
+  to {
+      width:0;
+      height:0;
+      visibility:hidden;
+  }
+}
+
+.pulsate {
+  -moz-animation: pulsate 3s ease-out;
+  /* Firefox */
+  -webkit-animation: pulsate 3s ease-out;
+  /* Safari and Chrome */
+  -o-animation: pulsate 3s ease-out;
+  /* Opera */
+  -webkit-animation-iteration-count: 5;
+  opacity: 1.0;
+}
+
+@-webkit-keyframes pulsate {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1.0;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}

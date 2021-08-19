@@ -1,0 +1,42 @@
+<nav class="navigation-default">
+  <div class="nav-wrapper">
+
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+            <span class="fs-4">{{ title }}</span>
+          </a>
+    
+          <ul class="nav nav-pills">
+            {# <li class="nav-item"><a href="/" class="nav-link active">
+                <i class="bi-house-fill"></i> Home</a></li>
+            <li class="nav-item"><a href="{{ url_for('static', filename='Pulse_Manual/Pulse_Manual/hh_start.htm')}}" class="nav-link" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-dice-3-fill"></i> Pulse Help</a></li>    
+            <li class="nav-item"><a href="{{ url_for('script_generator_bp.script_generator_func') }}" class="nav-link">
+                <i class="bi bi-file-code-fill"></i> Script Generator</a></li> #}
+                {% for link in links %}
+                  <li class="nav-item"><a href="{{ link.link }}" class="nav-link">
+                  <i class="{{ link.icon }}"></i> {{ link.name }}</a></li>
+                {% endfor %}
+
+          </ul>
+        </header>
+      </div>
+
+{#     <div class="left-nav">
+      <a href="{{ url_for('script_generator_bp.script_generator_func') }}">
+        <img src="{{ url_for('static', filename='img/logo.jpg') }}" alt="logo" width=150/>
+      </a>
+   </div>
+
+    <div class="right-nav">
+      {% if request.blueprint != 'profile_bp' %}
+        <a href="{{ url_for('script_generator_bp.script_generator_func') }}">My Account</a>
+      {% else %}
+        <a href="{{ url_for('script_generator_bp.script_generator_func') }}">Logout</a>
+      {% endif %}
+    </div> #}
+
+  </div>
+</nav>

@@ -1,0 +1,45 @@
+{% extends "layout.jinja2" %}
+
+{% block content %}
+  {% include "navigation.jinja2" %}
+
+  <div class="container">
+    <h1>{{ title }}</h1>
+    <h2>{{ subtitle }}</h2>
+
+<form id="scripter-form" action="" method="POST" role="form" enctype="multipart/form-data">
+    {{ form.csrf }}
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        <div class="row mb-3">
+            <div class="col-sm-6 form-control-lg">
+                <p>{{ form.name.label }} <small><mark>{{ form.name.description }}</mark></small><br>
+                    {{ form.name }}</p>
+                
+                <p>{{ form.link.label }} <small><mark>{{ form.link.description }}</mark></small><br>
+                    
+                    {{ form.link }}</p>
+
+                <p>{{ form.prefix.label }} <small><mark>{{ form.prefix.description }}</mark></small><br>
+                {{ form.prefix }}</p>
+
+                <p>{{ form.attachments.label }} <small><mark>{{ form.attachments.description }}</mark></small><br>
+                {{ form.attachments }}</p>
+            </div>
+
+            <div class="col-sm-6 form-control-lg">
+                {{ form.description.label }} <small><mark>{{ form.description.description }}</mark></small><br>
+                {{ form.description(rows=10, cols=50) }}
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-sm-8 form-control-lg">
+                {{ form.submit }}
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+{% endblock %}

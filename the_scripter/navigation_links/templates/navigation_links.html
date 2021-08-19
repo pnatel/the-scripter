@@ -1,0 +1,51 @@
+{% extends "layout.jinja2" %}
+
+{% block content %}
+  {% include "navigation.jinja2" %}
+
+  <div class="container">
+    <h1>{{ title }}</h1>
+    <h2>{{ subtitle }}</h2>
+
+<form id="scripter-form" action="" method="POST" role="form" enctype="multipart/form-data">
+    {{ form.csrf }}
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        <div class="row mb-3">
+            <div class="col-sm-12 form-control-lg">
+                <p>{{ form.name.label }} <small><mark>{{ form.name.description }}</mark></small><br>{{ form.name }}</p>
+                <p>{{ form.link.label }} <small><mark>{{ form.link.description }}</mark></small><br>{{ form.link }}</p>
+                <p>{{ form.icon.label }} <small><mark>{{ form.icon.description }}</mark></small><br>{{ form.icon }}</p>
+            </div>
+        </div>
+        <div class="row mb-12">
+            <div class="col-sm-8 form-control-lg">
+                {{ form.submit }}
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="table">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">URL</th>
+          <th scope="col">Bootstrap icon</th>
+        </tr>
+      </thead>
+      {% for link in links %}       
+      <tbody>
+        <tr>
+            <td>{{ link.id }}</td>
+            <td>{{ link.name }}</td>
+            <td>{{ link.link }}</td>
+            <td><i class="{{ link.icon }}"></i></td>
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+
+{% endblock %}

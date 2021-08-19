@@ -1,0 +1,64 @@
+{% extends "layout.jinja2" %}
+
+{% block content %}
+  {% include "navigation.jinja2" %}
+
+  <div class="container">
+    <h1>{{ record.name }}</h1>
+    {{ record.description }}
+    <strong>Refer to DOCO: </strong><a href="{{ record.link }}">{{ record.name }}</a>
+
+    <form id="scripter-form" action="" method="POST" role="form" enctype="multipart/form-data">
+      <fieldset>
+        <table class="table">
+        {% for field in form %}
+        {% if field.type in ['CSRFTokenField', 'HiddenField', 'csrf_token'] %}
+          {{ field() }}
+        {% else %} 
+            {% if field.name == "submit" %}
+              <tfoot>
+                <tr>
+                  <td>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </td>
+                </tr>
+              </tfoot>
+                
+              {% else %}
+                
+                {% if loop.index0 % 2 != 0 %}
+                  <tbody>
+                    <tr scope="row">
+                    <th class="text-capitalize" scope="col">{{ field.name }}</td>
+                    <td scope="col">{{ field() }}</p></td>
+                {% else %}
+                    <th class="text-capitalize" scope="col">{{ field.name }}</td>
+                    <td scope="col">{{ field() }}</p></td>
+                  </tr>
+                </tbody>
+                {% endif %}
+                
+              {% endif %}
+              {% if field.errors or field.help_text %}
+                <span class="help-inline">
+                {% if field.errors %}
+                  {{ field.errors|join(' ') }}
+                {% else %}
+                  {{ field.help_text }}
+                {% endif %}
+                </span>
+              {% endif %}
+
+          
+          </div>
+        {% endif %}
+        {% endfor %}
+        </table>
+      </fieldset>
+
+    </form>
+  </div>
+
+
+
+{% endblock %}
