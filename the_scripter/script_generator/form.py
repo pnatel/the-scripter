@@ -23,11 +23,12 @@ class RecordForm(FlaskForm):
     link = StringField("Website", validators=[URL()],
                        description="Use full URL: (http://example.com)")
     prefix = StringField("Prefix", [DataRequired()],
-                         description='Used to identify the variables in\
+                         description='Used to identify the variables in \
                               the script')
     attachments = MultipleFileField('Upload files',
                                     validators={DataRequired()},
-                                    description='.SQL files only')
+                                    description='Use text based files here \
+                                        (.sql/.txt)')
 
     submit = SubmitField("Submit")
 
