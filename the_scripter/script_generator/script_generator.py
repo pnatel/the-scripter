@@ -59,8 +59,9 @@ def script_generator_func():
 @script_generator_bp.route("/<script_id>", methods=['GET', 'POST'])
 def build_form(script_id):
     links = NavLink.query
-    record = db.session.query(Record).filter_by(id=script_id).one()
-    replacements = generateReplacementDict(record.folder_path, var='key_')
+    records = Record.query
+    record = records.filter_by(id=script_id).one()
+    replacements = generateReplacementDict(record.folder_path, var=record.prefix)
     # print(print("\n".join("{}\t{}".format(k, v) for k, v in replacements.items())))
     # print(replacements)
     form = Form(dictionary=replacements)
@@ -94,6 +95,7 @@ def build_form(script_id):
         'script.html',
         form=form,
         record=record,
+        records=records,
         links=links,
         size=len(replacements),
         replacements=replacements,

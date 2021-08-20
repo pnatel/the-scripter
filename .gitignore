@@ -1,1 +1,10 @@
 /.vscode
+/.venv
+/the_scripter/static/Pulse_Manual
+/the_scripter/script_generator/static/upload_folder
+/the_scripter/thescripter_db.sqlite
+/__pycache__
+/the_scripter/__pycache__
+/the_scripter/home/__pycache__
+/the_scripter/navigation_links/__pycache__
+/the_scripter/script_generator/__pycache__

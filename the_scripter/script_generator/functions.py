@@ -107,7 +107,7 @@ def generateReplacementDict(folder, var='key_', exception="") -> dict:
             values = values + get_variables(fileAsList, exception, var)
     for value in values:
         # replacementDict[value[len(var):]] = f'StringField("{value[len(var):]}", [DataRequired()])'
-        replacementDict[value[len(var):]] = value
+        replacementDict[value.replace(var, "")] = value
     return replacementDict
 
 
