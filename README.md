@@ -13,10 +13,10 @@ If you said yes to any of the above, keep reading as this simple app is just wha
 2. You can then use the form to fill the script(s)
 3. A .Zip file is generated with all your scripts, ready to be added to your maintenance document, or applied in the database.
 
-## What does this WebApp do NOT?
+## What this WebApp does NOT do?
 
 1. The app will NOT run SQL queries 
-2. The app does not guess your variables, uou must add a prefix on them.
+2. The app does not guess your variables, you must add a prefix on them.
 3. 
 
 ## How to install
@@ -40,11 +40,15 @@ To run the code in debug mode:
 - Under the hood, the engine searches the text file(s) for words with a pre-determined prefix, and replace them with the respective info you inserted in the form. 
 - **This app should be fully working, but it has rough edges, so review your scripts before apply them in a Production Database.**
 - It should work with any text base files
-- Use a prefix that is unique in your script, otherwise, it may mix with other content producing un-expected ressults and errors.
-- all scripts files upladed are available in plain text, so they can be updated without need to recreate the record
+- Use a prefix that is unique in your script, otherwise, it may mix with other content producing un-expected results and errors.
+- all scripts files upladed are available in plain text, so they can be updated without need to recreate the record in the database
 - This app is NOT Windows friendly due the slash/backslash dealbraker, however if you really want it should not be hard to convert it or to make it OS agnostic. Feel free to fork it and let me know the outcome.
 
 ## Questions?
 [Ask Away!](https://github.com/pnatel/the-scripter/discussions)
 
+## To do
 
+- clean-up the code
+- add testing for future releases
+- create CRUD for DB actions (only Create is implemented)
