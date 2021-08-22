@@ -1,4 +1,10 @@
 <div class="blueprint-info">
+{# FLASK_ENV: {{ config['FLASK_ENV'] }}
+ENV: {{ config['ENV'] }}
+FLASK_DEBUG: {{ config['FLASK_DEBUG'] }}
+DEBUG: {{ config['DEBUG'] }} #}
+
+{% if config['ENV'] == 'development' %}
   <h3>Blueprint Info</h3>
   <ul class="page-properties">
     <li><span class="attribute-title">Blueprint:</span> <span class="attribute-value">{{ request.blueprint }}</span></li>
@@ -6,4 +12,6 @@
     <li><span class="attribute-title">View:</span> <span class="attribute-value">{{ request.endpoint }}</span></li>
     <li><span class="attribute-title">Route:</span> <span class="attribute-value">{{ request.path }}</span></li>
   </ul>
+{% endif %}
+  
 </div>
